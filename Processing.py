@@ -20,7 +20,7 @@ def Saveto(image):
     img2=threshold(image)
     plt.imshow(img2, cmap='gray')
     plt.axis('off')
-    plt.savefig('rewritten.jpg')
+    plt.savefig('rewritten.jpg', bbox_inches='tight')
     
     img3=plt.imread('rewritten.jpg')
     return img3
