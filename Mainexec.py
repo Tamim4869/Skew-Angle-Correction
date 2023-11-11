@@ -6,8 +6,6 @@ import numpy as np
 from statistics import variance as varn
 import time
 
-import os
-os.chdir('C:\\Users\Tamim\Stat Project Codes\Input Images')
 
 start=time.time()
 
