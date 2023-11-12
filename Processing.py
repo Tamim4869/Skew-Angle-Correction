@@ -5,7 +5,7 @@ def rgbtogray(image):
     grayimg=np.dot(image[...,:3],[0.299, 0.587, 0.114])
     return grayimg
 
-def threshold(image, thres=114):
+def threshold(image, thres=122):
     img=rgbtogray(image)
     (a,b)=img.shape
     for i in range(a):
