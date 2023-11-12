@@ -18,9 +18,9 @@ def threshold(image, thres=114):
 
 def Saveto(image):
     img2=threshold(image)
-    plt.imshow(img2, cmap='gray')
+    plt.imshow(img2, cmap='gray', interpolation='hanning)
     plt.axis('off')
-    plt.savefig('rewritten.jpg', bbox_inches='tight')
+    plt.savefig('rewritten.jpg')
     
     img3=plt.imread('rewritten.jpg')
     return img3
