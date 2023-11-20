@@ -4,9 +4,6 @@ from scipy import ndimage
 from statistics import variance as varn
 import time
 
-import os
-os.chdir('C:\\Users\Tamim\Stat Project Codes\Input Images')
-
 start=time.time()
 
 def triplet(a,b,c, thres):
@@ -25,9 +22,9 @@ for i in range(p):
 
 plt.imshow(Z, cmap='gray', interpolation='hanning')
 plt.axis('off')
-plt.savefig('rewritten7.png', bbox_inches='tight', pad_inches=0)
+plt.savefig('Rewritten.png', bbox_inches='tight', pad_inches=0)
 
-img=plt.imread('rewritten7.png')
+img=plt.imread('Rewritten.png')
 
 def function(image):
     grayimg=np.dot(image[...,:3],[1/2, 1/4 , 1/4])
