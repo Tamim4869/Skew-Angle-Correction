@@ -22,7 +22,7 @@ for i in range(p):
 
 plt.imshow(Z, cmap='gray', interpolation='hanning')
 plt.axis('off')
-plt.savefig('Rewritten.jpg', bbox_inches='tight', pad_inches=0)
+plt.savefig('Rewritten.jpg', bbox_inches='tight')
 
 img=plt.imread('Rewritten.jpg')
 
