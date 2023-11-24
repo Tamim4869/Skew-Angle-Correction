@@ -1,12 +1,8 @@
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy import ndimage
-import time
 
-import os
-os.chdir('C:\\Users\Tamim\Stat Project Codes\Input Images')
-
-image=plt.imread('rewritten8.jpg')
+image=plt.imread('Rewritten.jpg')
 
 def function(image):
     grayimg=np.dot(image[...,:3],[1/2, 1/4 , 1/4])
