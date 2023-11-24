@@ -1,9 +1,6 @@
 import matplotlib.pyplot as plt
-from scipy import ndimage
 import numpy as np
 
-import os
-os.chdir('C:\\Users\Tamim\Stat Project Codes\Input Images')
 
 image=plt.imread('rewritten8.jpg')
 def function(image):
