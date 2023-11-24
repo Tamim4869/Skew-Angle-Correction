@@ -3,10 +3,8 @@ from scipy import ndimage
 import numpy as np
 from statistics import variance as varn
 
-import os
-os.chdir('C:\\Users\Tamim\Stat Project Codes\Input Images')
 
-image=plt.imread('rewritten8.jpg')
+image=plt.imread('Rewritten.jpg')
 
 def function(image):
     grayimg=np.dot(image[...,:3],[1/2, 1/4 , 1/4])
@@ -20,7 +18,7 @@ def countvar(image, angle, thres1, thres2):
     for i in range(h):
         count=0
         for j in range(w-1):
-            if thres2 >= abs(grayimg[i, j+1]-grayimg[i,j]) >= thres1:
+            if thres1 <= abs(grayimg[i, j+1]-grayimg[i,j]) <= thres2:
                 count +=1
         ls.append(count)
     var= varn(ls)
