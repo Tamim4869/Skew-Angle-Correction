@@ -27,9 +27,9 @@ else:
 
 plt.imshow(Z, cmap='gray', interpolation='hanning')
 plt.axis('off')
-plt.savefig('rewritten8.jpg', bbox_inches='tight')
+plt.savefig('Rewritten.jpg', bbox_inches='tight')
 
-img=plt.imread('rewritten8.jpg')
+img=plt.imread('Rewritten.jpg')
 
 def function(image):
     grayimg=np.dot(image[...,:3],[1/2, 1/4 , 1/4])
