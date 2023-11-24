@@ -1,16 +1,12 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-import os
-os.chdir('C:\\Users\Tamim\Stat Project Codes\Input Images')
+image=plt.imread('Rewritten.jpg')
 
-
-image=plt.imread('rewritten8.jpg')
-
-def rgbtogray(image):
+def function(image):
     grayimg=np.dot(image[...,:3],[1/2, 1/4, 1/4])
     return grayimg
-gray_image=rgbtogray(image)
+gray_image=function(image)
 
 fig, ax= plt.subplots()
 im=ax.imshow(gray_image, cmap='rainbow')
