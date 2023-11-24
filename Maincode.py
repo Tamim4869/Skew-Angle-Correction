@@ -12,39 +12,44 @@ def triplet(a,b,c, thres):
     else:
         return 0
 
-image=plt.imread('barcode3.jpg')
+image=plt.imread('barcode2.jpg')
 
 p,q,r=image.shape
 Z=np.zeros((p,q), dtype=np.int32)
-for i in range(p):
-    for j in range(q):
-        Z[i,j] +=triplet(image[i,j][0], image[i,j][1], image[i,j][2], 143)
+if image.max() >1:
+    for i in range(p):
+        for j in range(q):
+            Z[i,j] +=triplet(image[i,j][0], image[i,j][1], image[i,j][2], 143)
+else:
+    for i in range(p):
+        for j in range(q):
+            Z[i,j] +=triplet(image[i,j][0], image[i,j][1], image[i,j][2], 0.560784)
 
 plt.imshow(Z, cmap='gray', interpolation='hanning')
 plt.axis('off')
-plt.savefig('Rewritten.jpg', bbox_inches='tight')
+plt.savefig('rewritten8.jpg', bbox_inches='tight')
 
-img=plt.imread('Rewritten.jpg')
+img=plt.imread('rewritten8.jpg')
 
 def function(image):
     grayimg=np.dot(image[...,:3],[1/2, 1/4 , 1/4])
     return grayimg
 
 def countvar(image, angle, thres1, thres2):
-    rotated_image= ndimage.rotate(image, angle)
+    rotated_image= ndimage.rotate(image, angle, cval=1)
     grayimg=function(rotated_image)
     (h,w)= grayimg.shape
     ls=[]
     for i in range(h):
         count=0
         for j in range(w-1):
-            if thres2 >= abs(grayimg[i, j+1]-grayimg[i,j]) >= thres1:
+            if thres1 <= abs(grayimg[i, j+1]-grayimg[i,j]) <= thres2:
                 count +=1
         ls.append(count)
     var= varn(ls)
     return var
 
-thres1,thres2= 44, 175
+thres1,thres2= 45, 170
 fnlist=[countvar(img, 0.5*angle, thres1,thres2) for angle in range(0,360)]
 B=min(fnlist)
 m= 0.5*fnlist.index(B)
