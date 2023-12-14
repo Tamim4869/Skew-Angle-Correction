@@ -50,9 +50,11 @@ def countvar(image, angle, thres1, thres2):
     return var
 
 thres1,thres2= 45, 170
-fnlist=[countvar(img, 0.5*angle, thres1,thres2) for angle in range(0,360)]
+diff_by=0.5
+k=int(180/diff_by)
+fnlist=[countvar(img, diff_by*angle, thres1,thres2) for angle in range(k)]
 B=min(fnlist)
-m= 0.5*fnlist.index(B)
+m= diff_by*fnlist.index(B)
 
 def adjust(angle):
     if angle >90:
